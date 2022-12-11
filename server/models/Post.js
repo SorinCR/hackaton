@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const postSchema = new mongoose.Schema({
   _id: String,
-  attachment: Array,
+  attachment: String,
   plus: Number,
   description: String,
   comments: Object,

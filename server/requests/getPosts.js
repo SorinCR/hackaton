@@ -8,15 +8,10 @@ const generateAccessToken = (user) => {
   return jwt.sign(user, process.env.SECRET);
 };
 
-const plusPost = async (req, res) => {
+const getPosts = async (req, res) => {
   const { id, action } = req.body;
 
-  const post = await Post.findOneAndUpdate(
-    {
-      _id: id,
-    },
-    { $inc: { plus: action } }
-  );
+  const post = await Post.find({});
 
   res.json({ success: true, post: post });
 
@@ -36,4 +31,4 @@ const plusPost = async (req, res) => {
   //   res.json({ success: true });
 };
 
-module.exports = plusPost;
+module.exports = getPosts;

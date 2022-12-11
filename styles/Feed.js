@@ -11,7 +11,13 @@ export const COLORS = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "gray",
+    backgroundColor: "#000",
+    height: 700,
+    width: "100%",
+  },
+  contentContainer: {
+    height: "100%",
+    flex: 1,
   },
   text: {
     color: "white",
@@ -23,8 +29,8 @@ const styles = StyleSheet.create({
     height: 53,
     width: "100%",
     backgroundColor: "#2b2727",
-    borderBottomWidth: 1,
-    borderBottomColor: "red",
+    borderTopWidth: 2,
+    borderTopColor: "red",
   },
   banner: {
     height: "100%",
@@ -37,17 +43,17 @@ const styles = StyleSheet.create({
     position: "relative",
     backgroundColor: "red",
     width: "100%",
-    height: "100%",
-    borderRadius: 15,
-    top: -15,
+    height: "75%",
+    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 15,
   },
-  userAvatarWrapper: {
+  userInfo: {
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
     width: "100%",
     padding: "1%",
-    backgroundColor: "#0F0F0F",
+    // backgroundColor: "#0F0F0F",
   },
   userAvatar: {
     height: 30,
@@ -57,11 +63,52 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "red",
   },
+  userName: {
+    color: "white",
+    paddingLeft: "2%",
+  },
   userTags: {
     color: "white",
     fontWeight: "bold",
     width: "100%",
+  },
+  postWrapper: {
+    display: "flex",
+    alignItems: "center",
+    height: "70%",
+    width: "100%",
+    backgroundColor: "#51585a",
+  },
+  postImage: {
+    width: "100%",
+    height: "90%",
+    backgroundColor: "#51585a",
+  },
+  postIcon: {
+    color: "white",
+  },
+  postTitle: {
+    color: "white",
+    fontSize: 15,
+    width: "100%",
+    textAlign: "center",
+  },
+  postButtons: {
+    flex: 1,
+    flexDirection: "row",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#51585a",
+    fontSize: 10,
+    justifyContent: "space-around",
+    alignItems: "center",
     paddingLeft: "2%",
+    paddingRight: "2%",
+  },
+  posts: {
+    width: "100%",
+    padding: "5%",
+    height: "100%",
   },
 });
 

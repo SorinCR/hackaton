@@ -8,17 +8,22 @@ const generateAccessToken = (user) => {
   return jwt.sign(user, process.env.SECRET);
 };
 
-const login = async (req, res) => {
+const createPost = async (req, res) => {
   const { user, attachment, description, category, tags } = req.body;
 
   const post = await Post.create({
-    id: parseInt(Date.now()),
+    _id: parseInt(Date.now()),
+    plus: 0,
     attachment: attachment,
     user: user,
     description: description,
     category: category,
     tags: tags,
   });
+
+  await post.save();
+
+  res.json({ success: true });
 };
 
-module.exports = login;
+module.exports = createPost;

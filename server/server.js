@@ -7,6 +7,9 @@ const jwt = require("jsonwebtoken");
 const login = require("./requests/login");
 const register = require("./requests/register");
 const tokenLogin = require("./requests/tokenLogin");
+const createPost = require("./requests/createPost");
+const plusPost = require("./requests/plusPost");
+const getPosts = require("./requests/getPosts");
 const test = require("./requests/test");
 
 app.use(express.json());
@@ -39,6 +42,9 @@ const authenticateToken = (req, res, next) => {
 app.post("/login", login);
 app.post("/register", register);
 app.post("/tokenLogin", authenticateToken, tokenLogin);
+app.post("/createPost", authenticateToken, createPost);
+app.post("/plusPost", authenticateToken, plusPost);
+app.post("/getPosts", authenticateToken, getPosts);
 app.get("/test", authenticateToken, test);
 
 // const posts = [{username: "Kyle", test: 1}]
