@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const login = require("./requests/login");
 const register = require("./requests/register");
+const tokenLogin = require("./requests/tokenLogin");
+const test = require("./requests/test");
 
 app.use(express.json());
 
@@ -22,11 +24,12 @@ mongoose.connection.on("open", (ref) => {
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = authHeader;
+  console.log(authHeader);
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, process.env.SECRET, (err, user) => {
-    //console.log(err);
+    // console.log(err);
     if (err) return res.sendStatus(403);
     req.user = user;
     next();
@@ -35,6 +38,8 @@ const authenticateToken = (req, res, next) => {
 
 app.post("/login", login);
 app.post("/register", register);
+app.post("/tokenLogin", authenticateToken, tokenLogin);
+app.get("/test", authenticateToken, test);
 
 // const posts = [{username: "Kyle", test: 1}]
 

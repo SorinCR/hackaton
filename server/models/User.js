@@ -9,16 +9,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  sub: {
-    startedAt: {
-      type: Date,
-      default: 0,
-    },
-    length: {
-      type: Number,
-      default: 0,
-    },
-  },
 });
 
 userSchema.pre("save", function (next) {
